@@ -1,5 +1,5 @@
 test
 
 <% @photos.each do |photo| %>
-	<p> <a href="<%= photo.source_url %>"> </a> </p>
+	<p> <%=img_tag = photo.source_url %> </p>
 <% end %>

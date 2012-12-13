@@ -1,5 +1,5 @@
 test
 
 <% @photos.each do |photo| %>
-	<p> <%=photo.source_url%> </p>
+	<%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
 <% end %>

@@ -1,64 +1,65 @@
-test
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Side Scrolling Gallery</title>
+<title>Side Scroll Gallery with Captions</title>
 <style type="text/css">
 
-body {
+* {
     margin:0;
     padding:0;
 }
-h2 {
-    text-align:center;
-    margin:0;
-    padding:0 0 10px;
-    border-bottom:1px solid #000;
- }
-#wrapper {
-    width:80%;
-    min-width:600px;
-    max-width:900px;
-    margin:30px auto;
-    border:1px solid #000;
-    background:#CCC;
-    padding:10px 0 0;
-}
-#slide-wrap {
-    height:236px;
+body {
+    background:#141414;
+    position:relative;
     overflow:auto;
-    background:#EEF;
-    padding:0 20px; 
 }
-#inner-wrap {
-    float:left;
-    margin-right:-32767px;/*Be safe with Opera's limited neg margin of -32767px*/
-}
-img { /*For simulating images in Demo only for FF, remove this in working layout*/
-    float:left;
-    width:200px;
-    height:200px;
-    background:#444;
+h1 {
+    position:fixed;
+    height:60px;
+    width:100%;
+    line-height:60px;
+    font-size:1.75em;
+    text-align:center; 
     color:#FFF;
-    margin:10px 20px 0 0;
 }
 
+#wrapper {
+    float:left;
+    margin:80px 20px 20px;
+    margin-right:-999em;
+    position:relative;
+}
+.floatbox {
+    float:left; 
+    margin:0 20px 0 0;
+}
+.floatbox img {float:left;}
+
+.caption {
+    float:left; 
+    width:150px;
+    margin:0 0 0 20px;
+    padding:10px;  
+    background:#333;
+    color:#FFF;
+}
 </style>
 </head>
 <body>
-
-<div id="wrapper">
-<h2>"Side Scrolling Gallery"</h2>
-    <div id="slide-wrap">
-        <div id="inner-wrap"> 
-            <% @photos.each do |photo| %>
-				<%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-			<% end %>
-        </div>
+<h1>Full Screen Side Scroll Gallery with Captions</h1>
+<% @photos.each do |photo| %>
+<div id="wrapper"> 
+    <div class="floatbox"> 
+        <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
     </div>
+    
 </div>
+<% end %>
 </body>
 </html>
+
+
+
 

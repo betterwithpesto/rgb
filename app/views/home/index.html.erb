@@ -1,9 +1,3 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Side Scroll Gallery with Captions</title>
 <style type="text/css">
 
 * {
@@ -49,14 +43,15 @@ h1 {
 </head>
 <body>
 <h1>Full Screen Side Scroll Gallery with Captions</h1>
-<% @photos.each do |photo| %>
+
 <div id="wrapper"> 
-    <div class="floatbox"> 
-        <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-    </div>
-    
+	<% @photos.each do |photo| %>
+	    <div class="floatbox"> 
+	        <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+	    </div>
+    <% end %>
 </div>
-<% end %>
+
 </body>
 </html>
 

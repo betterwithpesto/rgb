@@ -1,5 +1,64 @@
 test
 
-<% @photos.each do |photo| %>
-	<%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-<% end %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Side Scrolling Gallery</title>
+<style type="text/css">
+
+body {
+    margin:0;
+    padding:0;
+}
+h2 {
+    text-align:center;
+    margin:0;
+    padding:0 0 10px;
+    border-bottom:1px solid #000;
+ }
+#wrapper {
+    width:80%;
+    min-width:600px;
+    max-width:900px;
+    margin:30px auto;
+    border:1px solid #000;
+    background:#CCC;
+    padding:10px 0 0;
+}
+#slide-wrap {
+    height:236px;
+    overflow:auto;
+    background:#EEF;
+    padding:0 20px; 
+}
+#inner-wrap {
+    float:left;
+    margin-right:-32767px;/*Be safe with Opera's limited neg margin of -32767px*/
+}
+img { /*For simulating images in Demo only for FF, remove this in working layout*/
+    float:left;
+    width:200px;
+    height:200px;
+    background:#444;
+    color:#FFF;
+    margin:10px 20px 0 0;
+}
+
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+<h2>"Side Scrolling Gallery"</h2>
+    <div id="slide-wrap">
+        <div id="inner-wrap"> 
+            <% @photos.each do |photo| %>
+				<%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+			<% end %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

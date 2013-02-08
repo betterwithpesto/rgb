@@ -43,14 +43,14 @@ h1 {
 </style>
 </head>
 <body>
-
-
-<div id="wrapper">
 <div class="container">
     <div class="row">
         <div class="span4"> TEST</div>
     </div>
 </div> 
+
+<div id="wrapper">
+
 	<% @photos.each do |photo| %>
 	    <div class="floatbox"> 
 	        <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>

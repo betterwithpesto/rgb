@@ -43,20 +43,24 @@ h1 {
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="span4"> TEST</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      testing
     </div>
-</div> 
-
-<div id="wrapper">
-
-	<% @photos.each do |photo| %>
-	    <div class="floatbox"> 
-	        <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-	    </div>
-    <% end %>
+    <div class="span10">
+      <div id="wrapper">
+        <% @photos.each do |photo| %>
+            <div class="floatbox"> 
+              <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+             </div>
+         <% end %>
+        </div>
+    </div>
+  </div>
 </div>
+
+
 
 </body>
 </html>

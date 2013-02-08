@@ -40,14 +40,34 @@ h1 {
     color:#FFF;
 }
 
+.sidebar-nav-fixed {
+    position:fixed;
+    top:60px;
+    width:21.97%;
+}
+
+@media (max-width: 767px) {
+    .sidebar-nav-fixed {
+        position:static;
+        width:auto;
+    }
+}
+
+@media (max-width: 979px) {
+    .sidebar-nav-fixed {
+        top:70px;
+    }
+}
+
 </style>
 </head>
 <body>
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2">
-      testing
-    </div>
+        <div class="well sidebar-nav sidebar-nav-fixed">
+            testing
+        </div>
     <div class="span10">
       <div id="wrapper">
         <% @photos.each do |photo| %>

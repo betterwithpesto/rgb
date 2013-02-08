@@ -66,16 +66,16 @@ h1 {
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-        <div class="well sidebar-nav sidebar-nav-fixed">
+        <div class="sidebar-nav sidebar-nav-fixed">
             testing
         </div>
-    </div>    
+    </div>
     <div class="span10">
       <div id="wrapper">
         <% @photos.each do |photo| %>
             <div class="floatbox"> 
               <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-             </div>
+            </div>
          <% end %>
         </div>
     </div>

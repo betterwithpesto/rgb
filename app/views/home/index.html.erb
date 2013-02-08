@@ -40,17 +40,30 @@ h1 {
     color:#FFF;
 }
 </style>
-</head>
-<body>
+
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      pasta batman
+    </div>
+    <div class="span10">
 <div id="wrapper"> 
-	<% @photos.each do |photo| %>
-	    <div class="floatbox"> 
-	        <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-	    </div>
+    <% @photos.each do |photo| %>
+        <div class="floatbox"> 
+            <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+        </div>
     <% end %>
 </div>
+    </div>
+  </div>
+</div>
 
-</body>
+
+
+
+
 </html>
 
 

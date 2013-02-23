@@ -3,5 +3,13 @@ Rgb7::Application.routes.draw do
 	match '/signin' => 'sessions#new', :as => :signin
 	match '/signout' => 'sessions#destroy', :as => :signout
 	match '/auth/failure' => 'sessions#failure'
-	root :to => "home#index"
+	
+
+	constraints(:subdomain => /^(?!www$)(.+)$/i) do
+   		resources :users
+
+   		match '', to: 'users#show'
+   	end
+
+   	#root :to => "home#index"
 end

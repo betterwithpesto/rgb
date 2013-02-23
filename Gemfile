@@ -13,3 +13,5 @@ end
 gem 'jquery-rails'
 gem "flickr-objects"
 gem 'bootstrap-sass', '2.1'
+gem 'omniauth'
+gem "omniauth-flickr"

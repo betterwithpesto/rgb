@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
-      user.urlname = user.uid.gsub("@", "")
+      user.urlname = user.uid.gsub("@", "").downcase
     end
   end
 end

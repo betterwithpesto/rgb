@@ -4,8 +4,15 @@
 		<div class="lead">
 			Create a portfolio website, using just your Flickr account.
 			<br />
-			Try it out!
-			<p><%= link_to "Login through flickr", "/auth/flickr" %></p>
+           	
+            <% if current_user.nil? %>
+            	Try it out!
+				<%= link_to "Sign up with Flickr", signin_url %>
+			<% else %>
+				Welcome Back <%= current_user.name %>! <br />
+				<%= link_to "Back to your page", root_url(subdomain: current_user.urlname) %>
+			<% end %>
+			
 		</div>	
 	</div>
 

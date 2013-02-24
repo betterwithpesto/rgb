@@ -1,33 +1,15 @@
-<style type="text/css">
-/*
-* {
-    margin:0;
-    padding:0;
-}
-body {
-    background:#141414;
-    position:relative;
-    overflow:auto;
-}
-h1 {
-    position:fixed;
-    height:60px;
-    width:100%;
-    line-height:60px;
-    font-size:1.75em;
-    text-align:center; 
-    color:#FFF;
-}
-*/
-
-
-</style>
 </head>
 <body>
     <div class="row">
         <div class="span3">
             <div class="sidebar-nav sidebar-nav-fixed"> 
                 <ul class ="nav nav-list">
+                    <li class="nav-header">
+                        hi
+                        <% if current_user %>
+                        <%= current_user.name %>!
+                        <% end %>
+                    </li>
                     <li class="nav-header">Sets </li>
                         <% @sets.each do |set| %>
                             <li> <%= link_to set.title, set_path(set.id) %>  </li>
@@ -35,8 +17,8 @@ h1 {
                     <li class ="nav-header">Links </li>
                     <li class="divider"></li>
                     
-                    <%= link_to "Sign in with Flickr", "/auth/flickr" if !current_user.nil? %> 
-                    <%= link_to "Sign Out", signout_path if current_user.nil? %>
+                    <%= link_to "Sign in with Flickr", signin_url if current_user.nil? %> 
+                    <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %>
                 </ul>
             </div>
         </div>

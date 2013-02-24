@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    reset_session
     redirect_to root_url, :notice => "Signed out!"
   end
 
@@ -39,8 +39,8 @@ end
     reset_session
     redirect_to root_url, :notice => 'Signed out!'
   end
-
+=end 
   def failure
   end
-=end  
+ 
 end

@@ -1,1 +1,46 @@
 @import "bootstrap";
+
+#wrapper {
+    float:left;
+    left: 21%;
+    height: 1024px;
+    margin-right:-99999em;
+    position:relative;
+    z-index: 1;
+}
+.floatbox {
+    float:left; 
+    margin:0 20px 0 0;
+}
+.floatbox img {float:left;}
+
+.caption {
+    float:left;
+    width:150px;
+    margin:0 0 0 20px;
+    padding:10px;
+    background:#000;
+    color:#FFF;
+}
+
+.sidebar-nav-fixed {
+    position:fixed;
+    
+    height:100%;
+    width:21%;
+    z-index: 2;
+    background: white;
+}
+
+@media (max-width: 767px) {
+    .sidebar-nav-fixed {
+        position:static;
+        width:auto;
+    }
+}
+
+@media (max-width: 979px) {
+    .sidebar-nav-fixed {
+        top:70px;
+    }
+}

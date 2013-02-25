@@ -20,11 +20,12 @@
                     <li class="divider"></li>
                     Logged in as: 
                     <% if current_user %>
-                        <%= current_user.name %>
+                        <%= current_user.urlname %> <br />
+                        <%= link_to "Edit Profile", edit_url(subdomain: current_user.urlname) if !current_user.nil? %>
                         <% end %> <br />
                     <%= link_to "Sign in with Flickr", signin_url if current_user.nil? %> 
                     <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %> <br />
-                    <%= link_to "Edit Profile", edit_url if !current_user.nil? %>
+                    
                 </div>
                 </ul>
             </div>

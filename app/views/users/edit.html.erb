@@ -1,0 +1,12 @@
+<header>Profile Edit Page</header> <br />
+If you change anything, you will have to relogin!! <br /><br />
+
+
+<%= form_for @user do |u| %>
+URL : Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
+<%= u.text_field :urlname %>  <br />
+About: <br />
+<%= u.text_area :about %> <br />
+
+<%= u.submit "submit" %>
+<% end %>

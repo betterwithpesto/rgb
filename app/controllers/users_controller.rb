@@ -6,7 +6,7 @@ def show
 	@sets = @person.get_sets
 	#@default_set = @sets.first.id
 
-	
+
 
 	if params[:set_id] != nil
 		@current_set = @sets.find(params[:set_id])
@@ -14,7 +14,7 @@ def show
 		@current_set = @sets.first
 	end
 
-	@photos = @current_set.get_photos(sizes: :all).map(&:large1024!)
+	@photos = @current_set.get_photos(sizes: :all).map{ |photo| photo.large!(1024)}
 	#@person.get_public_photos(sizes: :all).map(&:large1024!).first(10)
 end
 

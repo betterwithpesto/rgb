@@ -19,7 +19,7 @@ def show
 		if (!(photo.large!(1024).source_url.nil?))
 			photo.large!(1024)
 		else 
-			photo.medium!(640)
+			photo.largest!
 		end}
 	#@person.get_public_photos(sizes: :all).map(&:large1024!).first(10)
 end

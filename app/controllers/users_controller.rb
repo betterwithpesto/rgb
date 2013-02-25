@@ -14,7 +14,7 @@ def show
 		@current_set = @sets.first
 	end
 
-	@photos = @current_set.get_photos(sizes: :all).map{ |photo| photo.large!(1024)}
+	@photos = @current_set.get_photos(sizes: :all).map{ |photo| photo.large!(1024).nil? || photo.medium!(640)}
 	#@person.get_public_photos(sizes: :all).map(&:large1024!).first(10)
 end
 

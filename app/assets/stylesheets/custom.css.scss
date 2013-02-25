@@ -2,17 +2,20 @@
 
 #wrapper {
     float:left;
-    left: 21%;
+    
     height: 1024px;
     margin-right:-99999em;
     position:relative;
     z-index: 1;
 }
 .floatbox {
+    left: 225px;
     float:left; 
     margin:0 20px 0 0;
 }
-.floatbox img {float:left;}
+.floatbox img {
+    
+    float:left;}
 
 .caption {
     float:left;
@@ -23,15 +26,21 @@
     color:#FFF;
 }
 
+.sidebarcontrol {
+	position: absolute 0;
+}
+
 .sidebar-nav-fixed {
     position:fixed;
     
     height:100%;
-    width:21%;
+    width:225px;
     z-index: 2;
     background: white;
 }
-
+.nav{
+   padding-top: 25px;
+}
 @media (max-width: 767px) {
     .sidebar-nav-fixed {
         position:static;

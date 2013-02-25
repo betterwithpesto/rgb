@@ -4,21 +4,28 @@
         <div class="span3">
             <div class="sidebar-nav sidebar-nav-fixed"> 
                 <ul class ="nav nav-list">
-                    <li class="nav-header">
-                        hi
-                        <% if current_user %>
-                        <%= current_user.name %>!
-                        <% end %>
-                    </li>
+                    
+                    <%= link_to image_tag("http://farm" << @person.get_info!.icon_farm.to_s << ".staticflickr.com/" << @person.get_info!.icon_server.to_s << "/buddyicons/" << @person.get_info!.nsid << ".jpg"), @person.get_info!.photos_url %>
+                    
+                    <br /><br />
+                    <li class="nav-header">About</li>
+                    <%= @user.about %>
                     <li class="nav-header">Sets </li>
                         <% @sets.each do |set| %>
                             <li> <%= link_to set.title, set_path(set.id) %>  </li>
                         <% end %>
                     <li class ="nav-header">Links </li>
+                    <!-- maybe put cameras used... pretty cool feature -->
+                    <div class ="sidebarcontrol">
                     <li class="divider"></li>
-                    
+                    Logged in as: 
+                    <% if current_user %>
+                        <%= current_user.name %>
+                        <% end %> <br />
                     <%= link_to "Sign in with Flickr", signin_url if current_user.nil? %> 
-                    <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %>
+                    <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %> <br />
+                    <%= link_to "Edit Profile", edit_url if !current_user.nil? %>
+                </div>
                 </ul>
             </div>
         </div>

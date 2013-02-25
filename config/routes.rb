@@ -11,7 +11,7 @@ Rgb7::Application.routes.draw do
    		
    		match '/:set_id', to: 'users#show', as: :set
    		match '', to: 'users#show', as: :default
-   		
+   		match '/user/edit', to: 'users#edit', as: :edit
    		match '/auth/failure' => 'sessions#failure'
    	end
 end

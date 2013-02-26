@@ -43,10 +43,12 @@ body {
     height:100%;
     width:225px;
     z-index: 2;
+    background-color: rgba(255,255,255,1.0);
 }
 .nav{
    padding-top: 15px;
    margin-bottom: 90px;
+
 }
 @media (max-width: 767px) {
     .sidebar-nav-fixed {

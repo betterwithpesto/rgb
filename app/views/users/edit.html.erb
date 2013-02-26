@@ -1,4 +1,10 @@
+<%if current_user.nil? %>
+<script type="text/javascript">
+    window.location.href="http://rgb.io"  // put your correct path in a string here
+  </script>
+ <% end %>
 <%if current_user.urlname == @user.urlname %>
+
 <header>Profile Edit Page</header> <br />
 If you change anything, you will have to relogin!! <br /><br />
 

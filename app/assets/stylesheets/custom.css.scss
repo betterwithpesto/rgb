@@ -32,7 +32,7 @@
 
 .sidebar-nav-fixed {
     position:fixed;
-    
+    overflow-y:scroll;
     height:100%;
     width:225px;
     z-index: 2;

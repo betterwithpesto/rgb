@@ -11,7 +11,7 @@
                     <li class="nav-header">About</li>
                     <%= @user.about %>
                     <li class="nav-header">Sets </li>
-                        <% @sets.each.first(5) do |set| %>
+                        <% @sets.each do |set| %>
                             <li> <%= link_to set.title, set_path(set.id) %>  </li>
                         <% end %>
                     <li class ="nav-header">Links </li>

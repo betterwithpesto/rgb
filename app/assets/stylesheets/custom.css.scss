@@ -1,20 +1,23 @@
 @import "bootstrap";
 
+body {
+    overflow-y:hidden;
+}
 #wrapper {
-    float:left;
-    
-    height: 1024px;
+    padding-top: 15px;
+    overflow-y:hidden;
     margin-right:-99999em;
     margin-left: 225px;
     position:relative;
     z-index: 1;
 }
 .floatbox {
-    float:left; 
+    overflow-y:hidden;
+    float:left;
     margin:0 10px 0 0px;
 }
 .floatbox img {
-    
+    overflow-y:hidden;
     float:left;}
 
 .caption {
@@ -26,20 +29,22 @@
     color:#FFF;
 }
 
-.sidebarcontrol {
-	position: absolute 0;
+.user-controls {
+	position: fixed;
+    bottom:0;
+    padding-bottom: 15px;
 }
 
 .sidebar-nav-fixed {
     position:fixed;
-    overflow-y:scroll;
+    overflow-y:auto;
     height:100%;
     width:225px;
     z-index: 2;
     background: white;
 }
 .nav{
-   padding-top: 25px;
+   padding-top: 15px;
 }
 @media (max-width: 767px) {
     .sidebar-nav-fixed {

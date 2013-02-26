@@ -1,45 +1,46 @@
 </head>
 <body>
-    <div class="row">
-        <div class="span3">
-            <div class="sidebar-nav sidebar-nav-fixed"> 
-                <ul class ="nav nav-list">
-                    
-                    <%= link_to image_tag("http://farm" << @person.get_info!.icon_farm.to_s << ".staticflickr.com/" << @person.get_info!.icon_server.to_s << "/buddyicons/" << @person.get_info!.nsid << ".jpg"), @person.get_info!.photos_url %>
-                    
-                    <br /><br />
-                    <li class="nav-header">About</li>
-                    <%= @user.about %>
-                    <li class="nav-header">Sets </li>
-                        <% @sets.each do |set| %>
-                            <li> <%= link_to set.title, set_path(set.id) %>  </li>
-                        <% end %>
-                    <li class ="nav-header">Links </li>
-                    <!-- maybe put cameras used... pretty cool feature -->
-                    <div class ="sidebarcontrol">
-                    <li class="divider"></li>
-                    Logged in as: 
-                    <% if current_user %>
-                        <%= current_user.urlname %> <br />
-                        <%= link_to "Edit Profile", edit_url(subdomain: current_user.urlname) if !current_user.nil? %>
-                        <% end %> <br />
-                    <%= link_to "Sign in with Flickr", signin_url if current_user.nil? %> 
-                    <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %> <br />
-                    
-                </div>
-                </ul>
+
+    <div class="sidebar-nav sidebar-nav-fixed"> 
+        <ul class ="nav nav-list">
+            
+            <%= link_to image_tag("http://farm" << @person.get_info!.icon_farm.to_s << ".staticflickr.com/" << @person.get_info!.icon_server.to_s << "/buddyicons/" << @person.get_info!.nsid << ".jpg"), @person.get_info!.photos_url %>
+            
+            <br /><br />
+            <li class="nav-header">About</li>
+            <%= @user.about %>
+            <li class="nav-header">Sets </li>
+                <% @sets.each do |set| %>
+                    <li> <%= link_to set.title, set_path(set.id) %>  </li>
+                <% end %>
+            <li class ="nav-header">Links </li>
+            <!-- maybe put cameras used... pretty cool feature -->
+           
+            <div class ="user-controls">
+                <li class="divider"></li>
+                
+                <% if current_user %>
+                    <strong>Logged in as:</strong>
+                    <%= current_user.urlname %> <br />
+                    <%= link_to "Edit Profile", edit_url(subdomain: current_user.urlname) if !current_user.nil? %> </br>
+                    <% end %>
+                <%= link_to "Sign in with Flickr", signin_url( :subdomain => false) if current_user.nil? %> 
+                <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %> 
+                
             </div>
-        </div>
+        </ul>
     </div>
-    <div class="span10">
-        <div id="wrapper">
-            <% @photos.each do |photo| %>
-                <div class="floatbox"> 
-                    <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-                </div>
-            <% end %>
-        </div>
+
+
+
+    <div id="wrapper">
+        <% @photos.each do |photo| %>
+            <div class="floatbox"> 
+                <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+            </div>
+        <% end %>
     </div>
+
 </div>
 
 

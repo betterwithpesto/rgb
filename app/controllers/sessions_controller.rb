@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-
+    @allusers = User.all
   end
 
   def create

@@ -6,16 +6,17 @@
 			<br />
            	
             <% if current_user.nil? %>
-            	Try it out!
+            	Try it out! <br />
 				<%= link_to "Sign up with Flickr", signin_url %>
 			<% else %>
 				Welcome Back <%= current_user.name %>! <br />
-				<%= link_to "Back to your page", root_url(subdomain: current_user.urlname) %>
+				<%= link_to "Back to your page", root_url(subdomain: current_user.urlname) %> <br />
 			<% end %>
+			<br />
 			
 		</div>	
 	</div>
-
+<a href = "http://pat.rgb.io"> Check out a sample page </a>
 
 </div>	
 

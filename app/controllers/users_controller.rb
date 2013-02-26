@@ -14,13 +14,23 @@ def show
 		@current_set = @sets.first
 	end
 
-	@photos = @current_set.get_photos(sizes: :all).map{ 
-		|photo| 
-		if (!(photo.large!(1024).source_url.nil?))
-			photo.large!(1024)
-		else 
-			photo.largest!
-		end}
+	if @current_set != nil
+		@photos = @current_set.get_photos(sizes: :all).map{ 
+			|photo| 
+			if (!(photo.large!(1024).source_url.nil?))
+				photo.large!(1024)
+			else 
+				photo.largest!
+			end}
+	else
+		@photos = @person.get_public_photos(sizes: :all).map{ 
+			|photo| 
+			if (!(photo.large!(1024).source_url.nil?))
+				photo.large!(1024)
+			else 
+				photo.largest!
+			end}
+	end	
 	#@person.get_public_photos(sizes: :all).map(&:large1024!).first(10)
 end
 

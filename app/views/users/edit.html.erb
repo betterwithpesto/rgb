@@ -1,3 +1,4 @@
+<%if current_user.urlname == @user.urlname %>
 <header>Profile Edit Page</header> <br />
 If you change anything, you will have to relogin!! <br /><br />
 
@@ -9,4 +10,5 @@ About: <br />
 <%= u.text_area :about %> <br />
 
 <%= u.submit "submit" %>
+<% end %>
 <% end %>

@@ -41,11 +41,7 @@ end
 
 def update
 	@user = User.find_by_urlname!(request.subdomain)
-	if User.where(:urlname => params[:urlname]).first.nil?
-		if @user.update_attributes(params[:user])
-			redirect_to signout_url(:subdomain => false)
-	end		
-	else
+	if @user.update_attributes(params[:user])
 		redirect_to signout_url(:subdomain => false)
 	end
 end

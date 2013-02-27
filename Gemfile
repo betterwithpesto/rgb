@@ -15,3 +15,4 @@ gem "flickr-objects"
 gem 'bootstrap-sass', '2.1'
 gem 'omniauth'
 gem "omniauth-flickr"
+gem 'client_side_validations'

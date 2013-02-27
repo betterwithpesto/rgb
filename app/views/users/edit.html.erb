@@ -3,18 +3,25 @@
     window.location.href="http://rgb.io"  // put your correct path in a string here
   </script>
  <% end %>
+
 <%if current_user.urlname == @user.urlname %>
 
 <header>Profile Edit Page</header> <br />
 If you change anything, you will have to relogin!! <br /><br />
 
 
-<%= form_for @user do |u| %>
-URL : Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
-<%= u.text_field :urlname %>  <br />
-About: <br />
-<%= u.text_area :about %> <br />
-
-<%= u.submit "submit" %>
-<% end %>
-<% end %>
+	<%= form_for @user do |u| %>
+		<%= render "shared/error_messages", :target => @user %>
+			<div class="field">
+				URL : Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
+				<%= u.text_field :urlname %>  <br />
+			</div>
+			<div class "field">
+				About: <br />
+				<%= u.text_area :about %> <br />
+			</div>
+			<div class = "actions">
+			 	<%= u.submit "submit" %>
+			</div>
+		<% end %>
+	<% end %>

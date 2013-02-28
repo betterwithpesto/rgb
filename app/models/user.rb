@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
 
-      if Flickr.people.find(user.uid).get_info!.path_alias.downcase.nil?
+      if Flickr.people.find(user.uid).get_info!.path_alias.nil?
     		user.urlname = user.uid.gsub("@", "").downcase
       else
      		user.urlname = Flickr.people.find(user.uid).get_info!.path_alias.downcase

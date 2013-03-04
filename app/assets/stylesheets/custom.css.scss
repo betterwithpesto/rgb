@@ -6,7 +6,6 @@ body {
 #wrapper {
     padding-top: 15px;
     overflow-y:hidden;
-    margin-right:-99999em;
     margin-left: 225px;
     position:relative;
     z-index: 1;
@@ -63,3 +62,24 @@ body {
         top:70px;
     }
 }
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+img{
+  max-height: 681px;
+  width: auto;
+}
+
+tr{
+  vertical-align: top;
+}
+td{
+  white-space: nowrap;
+}
+table{
+  max-height: 681px;
+}
+

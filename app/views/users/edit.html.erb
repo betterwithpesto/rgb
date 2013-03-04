@@ -14,7 +14,7 @@ If you change anything, you will have to relogin!! <br /><br />
 		<%= render "shared/error_messages", :target => @user %>
 			<div class="field">
 				URL : Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
-				<%= u.text_field :urlname %>  <br />
+				<%= u.text_field :urlname %> (No symbols or spaces) <br />
 			</div>
 			<div class "field">
 				About: <br />

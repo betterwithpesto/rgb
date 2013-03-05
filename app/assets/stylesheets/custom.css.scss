@@ -78,8 +78,11 @@ tr{
   vertical-align: top;
 }
 td{
+  position: absolute;
+  top: 0;
+  bottom: 0;
   white-space: nowrap;
-  max-height: 681px;
+  max-height: 100%;
   padding-right: 10px;
 }
 table{

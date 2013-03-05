@@ -4,7 +4,7 @@
     <div class="sidebar-nav sidebar-nav-fixed"> 
         <ul class ="nav nav-list">
             
-            <%= link_to image_tag("http://farm" << @person.get_info!.icon_farm.to_s << ".staticflickr.com/" << @person.get_info!.icon_server.to_s << "/buddyicons/" << @person.get_info!.nsid << ".jpg"), @person.get_info!.photos_url %>
+            <%= link_to image_tag(@profile_pic_url), @person.get_info!.photos_url %>
             
             <br /><br />
             <li class="nav-header">About</li>

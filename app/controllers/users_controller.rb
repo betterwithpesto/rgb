@@ -5,6 +5,7 @@ def show
 	@person = Flickr.people.find(@user.uid)
 	@sets = @person.get_sets
 	#@default_set = @sets.first.id
+	@profile_pic_url = "http://farm" << @person.get_info!.icon_farm.to_s << ".staticflickr.com/" << @person.get_info!.icon_server.to_s << "/buddyicons/" << @person.get_info!.nsid << ".jpg"
 
 
 

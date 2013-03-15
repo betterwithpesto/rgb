@@ -24,7 +24,13 @@
 }
 
 .gallery{
-  img{float:left;}
+  height: 100%;
+
+  img{
+    float:left;
+    height: 100%;
+  }
+  
 }
 
 

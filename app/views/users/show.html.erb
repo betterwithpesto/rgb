@@ -1,11 +1,8 @@
-</head>
-<body>
-
     <div class="sidebar-nav sidebar-nav-fixed"> 
         <ul class ="nav nav-list">
-            
-            <%= link_to image_tag(@profile_pic_url), @person.get_info!.photos_url %>
-            
+            <div class = "profile-pic">
+                <%= link_to image_tag(@profile_pic_url), @person.get_info!.photos_url %>
+            </div>
             <br /><br />
             <li class="nav-header">About</li>
             <%= @user.about %>
@@ -31,20 +28,26 @@
         </ul>
     </div>
 
+    <style type="text/css">
+        .gallery {
+            width: <%= @photos.length * @photo_size %>px;
+        }
+    </style>
+    <div class = "gallery">
+        <% @photos.each do |photo| %>
+            <%= image_tag photo.source_url %>
+        <% end %>
+    </div>
 
-    <div id = "wrapper">
-        <table cellspacing="10">
-            <tr>
-            <% @photos.each do |photo| %>
-                <td>
-                    <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-                </td>
-            <% end %>
-            </tr>
-        </table>
-    </div id = "wrapper">
 <script type="text/javascript" charset="utf-8">
+    
+var containerWidth = 0;
+$('asset').each(function() {
 
+    width += %(this).width();
+
+}
+    
       $(function() {
           $("img").lazyload({effect: "fadeIn"});
       });
@@ -54,12 +57,3 @@
         $(".post").wrap("<td>");
     });
   </script>
-
-</body>
-
-
-</html>
-
-
-
-

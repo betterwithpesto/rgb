@@ -1,8 +1,79 @@
 @import "bootstrap";
 
+.user-controls {
+  position: fixed;
+    bottom:0;
+    width: 210px;
+    padding-bottom: 15px;
+    z-index: 999;
+    background-color: rgba(255,255,255,1.0);
+}
+
+.sidebar-nav-fixed {
+    position:fixed;
+    overflow-y:auto;
+    height:100%;
+    width:225px;
+    z-index: 2;
+    background-color: rgba(255,255,255,1.0);
+}
+.nav{
+   padding-top: 15px;
+   margin-bottom: 90px;
+
+}
+
+.gallery{
+  img{float:left;}
+}
+
+
+
+
+
+
+
+
+
+
+/*
 body {
     overflow-y:hidden;
 }
+
+#container {
+  width: 1024px;
+  overflow: scroll;
+}
+
+#inner_container{
+  width: 30000px;
+}
+
+.user-controls {
+  position: fixed;
+    bottom:0;
+    width: 210px;
+    padding-bottom: 15px;
+    z-index: 999;
+    background-color: rgba(255,255,255,1.0);
+}
+
+.sidebar-nav-fixed {
+    position:fixed;
+    overflow-y:auto;
+    height:100%;
+    width:225px;
+    z-index: 2;
+    background-color: rgba(255,255,255,1.0);
+}
+.nav{
+   padding-top: 15px;
+   margin-bottom: 90px;
+
+}
+
+
 #wrapper {
     overflow-y:hidden;
     margin-left: 225px;
@@ -69,9 +140,8 @@ body {
 }
 
 img{
-  
   width: auto;
-  max-height: inherit;
+  max-height: 100%;
 }
 
 tr{
@@ -86,4 +156,4 @@ table{
   max-height: 100%;
   height: 100%
 }
-
+*/

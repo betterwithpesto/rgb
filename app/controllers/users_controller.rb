@@ -7,6 +7,7 @@ def show
 	#@default_set = @sets.first.id
 	@profile_pic_url = "http://farm" << @person.get_info!.icon_farm.to_s << ".staticflickr.com/" << @person.get_info!.icon_server.to_s << "/buddyicons/" << @person.get_info!.nsid << ".jpg"
 
+	@photo_size = 1024
 
 
 	if params[:set_id] != nil
@@ -18,16 +19,16 @@ def show
 	if @current_set != nil
 		@photos = @current_set.get_photos(sizes: :all).map{ 
 			|photo| 
-			if (!(photo.large!(1024).source_url.nil?))
-				photo.large!(1024)
+			if (!(photo.large!(@photo_size).source_url.nil?))
+				photo.large!(@photo_size)
 			else 
 				photo.largest!
 			end}
 	else
 		@photos = @person.get_public_photos(sizes: :all).map{ 
 			|photo| 
-			if (!(photo.large!(1024).source_url.nil?))
-				photo.large!(1024)
+			if (!(photo.large!(@photo_size).source_url.nil?))
+				photo.large!(@photo_size)
 			else 
 				photo.largest!
 			end}

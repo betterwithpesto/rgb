@@ -9,7 +9,6 @@ def show
 
 	@photo_size = 1024
 
-
 	if params[:set_id] != nil
 		@current_set = @sets.find(params[:set_id])
 	else
@@ -32,7 +31,14 @@ def show
 			else 
 				photo.largest!
 			end}
-	end	
+	end
+	@photos = @photos.take 10
+
+	@total_width = 0
+	@max_height = @photos.map {|p| p.height}.min
+	@photos.each do |pic|
+		@total_width += pic.width
+	end
 	#@person.get_public_photos(sizes: :all).map(&:large1024!).first(10)
 end
 

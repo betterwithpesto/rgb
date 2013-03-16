@@ -30,30 +30,31 @@
 
     <style type="text/css">
         .gallery {
-            width: <%= @photos.length * @photo_size %>px;
+            width: <%= @total_width %>px;
         }
     </style>
     <div class = "gallery">
         <% @photos.each do |photo| %>
-            <%= image_tag photo.source_url %>
+            <img src="/assets/grey.gif" data-original="<%= photo.source_url %>" data-width="<%= photo.width %>" data-height="<%= photo.height %>" />
         <% end %>
     </div>
 
 <script type="text/javascript" charset="utf-8">
-    
-var containerWidth = 0;
-$('asset').each(function() {
+    var origH = $(window).height();
+    var newH  = $(window).height();
+    var W = $(".gallery").width();
+    var multiplier = newH/<%= @max_height %>;
+    $(".gallery").width(W*multiplier);
+    function imgsize(){
+        newH  = $(window).height();
+        multiplier = newH/origH;
+        $(".gallery").width(W*multiplier);
+    }
+    $(window).bind('resize', function() { imgsize(); });
 
-    width += %(this).width();
-
-}
-    
-      $(function() {
-          $("img").lazyload({effect: "fadeIn"});
-      });
-
-      $(function(){
-        $("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
-        $(".post").wrap("<td>");
+    $(function() {
+        $(".gallery img").lazyload({ effect: "fadeIn"});
     });
-  </script>
+
+    
+</script>

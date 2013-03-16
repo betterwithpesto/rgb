@@ -32,7 +32,6 @@ def show
 				photo.largest!
 			end}
 	end
-	@photos = @photos.take 10
 
 	@total_width = 0
 	@max_height = @photos.map {|p| p.height}.min

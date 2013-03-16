@@ -1,5 +1,10 @@
 @import "bootstrap";
 
+body{
+  overflow-y:hidden;
+  overflow-x:hidden;
+}
+
 .user-controls {
   position: fixed;
     bottom:0;

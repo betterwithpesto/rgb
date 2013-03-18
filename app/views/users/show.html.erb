@@ -46,12 +46,12 @@
     var origH = $(window).height();
     var newH  = $(window).height();
     var W = $(".gallery").width();
-    var multiplier = newH/<%= @max_height %>;
+    var multiplier = 1 + (newH/<%= @max_height %>);
     $(".gallery").height(origH);
     $(".gallery").width(W*multiplier);
     function imgsize(){
         newH  = $(window).height();
-        multiplier = newH/origH;
+        multiplier = 1 + (newH/origH);
         $(".gallery").height(newH);
         $(".gallery").width(W*multiplier);
     }

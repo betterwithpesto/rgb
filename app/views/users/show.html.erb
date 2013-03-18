@@ -20,7 +20,9 @@
                     <strong>Logged in as:</strong>
                     <%= current_user.urlname %> <br />
                     <%= link_to "Edit Profile", edit_url(subdomain: current_user.urlname) if !current_user.nil? %> </br>
-                    <% end %>
+                
+
+                <% end %>
                 <%= link_to "Sign in with Flickr", signin_url( :subdomain => false) if current_user.nil? %> 
                 <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %> 
                 
@@ -37,6 +39,7 @@
         <% @photos.each do |photo| %>
             <img src="/assets/grey.gif" data-original="<%= photo.source_url %>" data-width="<%= photo.width %>" data-height="<%= photo.height %>" />
         <% end %>
+        <div class="clearfix"></div>
     </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -44,23 +47,25 @@
     var newH  = $(window).height();
     var W = $(".gallery").width();
     var multiplier = newH/<%= @max_height %>;
+    $(".gallery").height(origH);
     $(".gallery").width(W*multiplier);
     function imgsize(){
         newH  = $(window).height();
         multiplier = newH/origH;
-        $(".gallery").width(W*multiplier);
+        $(".gallery").height(newH);
+        $("gallery").width(W*multiplier);
     }
     $(window).bind('resize', function() { imgsize(); });
 
     $(function() {
         $(".gallery img").lazyload({ effect: "fadeIn"});
     });
-
+/*
 $(function() {
    $("body").mousewheel(function(event, delta) {
-      this.scrollLeft -= (delta * 30);
+      this.scrollLeft -= (delta * 50);
           event.preventDefault();
    });
 });
-
+*/
 </script>

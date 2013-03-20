@@ -43,20 +43,38 @@
     </div>
 
 <script type="text/javascript" charset="utf-8">
+
     var origH = $(window).height();
     var newH  = $(window).height();
     var W = $(".gallery").width();
-    var multiplier = 1 + (newH/<%= @max_height %>);
+    var newW = 0;
+    var multiplier = (newH/<%= @max_height %>);
     $(".gallery").height(origH);
     $(".gallery").width(W*multiplier);
+    var counter = 0;
+    var totalImageWidth = 0;
+    $(window).load(function(){
+        $('.gallery img').each(function(){
+          totalImageWidth += ($(this).width() + 5);
+          counter++;
+        });
+        $(".gallery").width(totalImageWidth);
+    });
+    
     function imgsize(){
+        newW = $(window).width();
         newH  = $(window).height();
-        multiplier = 1 + (newH/origH);
+        totalImageWidth = 0;
+        $('.gallery img').each(function(){
+          totalImageWidth += ($(this).width() + 5);
+        });
+
+        //multiplier = (newH/origH);
         $(".gallery").height(newH);
-        $(".gallery").width(W*multiplier);
+        $(".gallery").width(totalImageWidth);
     }
     $(window).bind('resize', function() { imgsize(); });
-
+    
     $(function() {
         $(".gallery img").lazyload({ effect: "fadeIn"});
     });

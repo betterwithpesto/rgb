@@ -33,10 +33,12 @@ def show
 			end}
 	end
 
+	@photos = @photos.take(5)
+
 	@total_width = 0
 	@max_height = @photos.map {|p| p.height}.min
 	@photos.each do |pic|
-		@total_width += pic.width
+		@total_width += (pic.width + 5)
 	end
 	#@person.get_public_photos(sizes: :all).map(&:large1024!).first(10)
 end

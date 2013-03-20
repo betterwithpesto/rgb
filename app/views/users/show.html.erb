@@ -30,20 +30,15 @@
         </ul>
     </div>
 
-    <style type="text/css">
-        .gallery {
-            width: <%= @total_width %>px;
-        }
-    </style>
+    
     <div class = "gallery">
         <% @photos.each do |photo| %>
-            <img src="/assets/grey.gif" data-original="<%= photo.source_url %>" data-width="<%= photo.width %>" data-height="<%= photo.height %>" />
+            <%= image_tag photo.source_url -%> 
         <% end %>
-        <div class="clearfix"></div>
     </div>
 
 <script type="text/javascript" charset="utf-8">
-
+/*
     var origH = $(window).height();
     var newH  = $(window).height();
     var W = $(".gallery").width();
@@ -74,10 +69,15 @@
         $(".gallery").width(totalImageWidth);
     }
     $(window).bind('resize', function() { imgsize(); });
-    
+
     $(function() {
         $(".gallery img").lazyload({ effect: "fadeIn"});
+        totalImageWidth = 0;
+        $('.gallery img').each(function(){
+          totalImageWidth += ($(this).width() + 5);
+        });
     });
+    */
 /*
 $(function() {
    $("body").mousewheel(function(event, delta) {
@@ -86,4 +86,5 @@ $(function() {
    });
 });
 */
+
 </script>

@@ -6,7 +6,7 @@ body{
 }
 
 .user-controls {
-  position: fixed;
+  
     bottom:0;
     width: 210px;
     padding-bottom: 15px;
@@ -15,10 +15,12 @@ body{
 }
 
 .sidebar-nav-fixed {
-    position:fixed;
-    overflow-y:auto;
+    position:static;
+    float:left;
+    //overflow-y:auto;
     height:100%;
-    width:225px;
+    //margin-right:200px;
+    width:200px;
     z-index: 2;
     background-color: rgba(255,255,255,1.0);
 }
@@ -28,11 +30,14 @@ body{
 
 }
 .gallery{
-  padding-left:210px;
+  position:static;
+  overflow-x: scroll;
   height: 100%;
+  z-index: 1;
+  white-space: nowrap;
 
   img{
-    float:left;
+    position:static;
     height: 100%;
     border-right:5px solid #FFF;
   }

@@ -38,6 +38,15 @@
     </div>
 
 <script type="text/javascript" charset="utf-8">
+var newH  = $(window).height();
+$(".gallery").height(newH);
+ function imgsize(){
+        newH  = $(window).height();
+        totalImageWidth = 0;
+        //multiplier = (newH/origH);
+        $(".gallery").height(newH);
+    }
+    $(window).bind('resize', function() { imgsize(); });
 /*
     var origH = $(window).height();
     var newH  = $(window).height();

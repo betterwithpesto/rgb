@@ -15,7 +15,7 @@ body{
 }
 
 .sidebar-nav-fixed {
-    position:static;
+    //position:static;
     float:left;
     //overflow-y:auto;
     height:100%;
@@ -30,15 +30,15 @@ body{
 
 }
 .gallery{
-  position:static;
-  overflow-x: scroll;
+  //position:static;
+  //overflow-x: scroll;
   height: 100%;
   z-index: 1;
   white-space: nowrap;
 
   img{
-    position:static;
-    height: 100%;
+    //position:static;
+    height: inherit;
     border-right:5px solid #FFF;
   }
 }

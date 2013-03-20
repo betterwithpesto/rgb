@@ -33,7 +33,7 @@
     
     <div class = "gallery">
         <% @photos.each do |photo| %>
-            <%= image_tag photo.source_url -%> 
+            <img src="/assets/grey.gif" data-original="<%= photo.source_url %>" data-width="<%= photo.width %>" data-height="<%= photo.height %>" />
         <% end %>
     </div>
 
@@ -47,6 +47,9 @@ $(".gallery").height(newH);
         $(".gallery").height(newH);
     }
     $(window).bind('resize', function() { imgsize(); });
+  $(function() {
+        $(".gallery img").lazyload({ effect: "fadeIn"});
+    });
 /*
     var origH = $(window).height();
     var newH  = $(window).height();

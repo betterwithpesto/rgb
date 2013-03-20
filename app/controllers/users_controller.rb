@@ -33,8 +33,6 @@ def show
 			end}
 	end
 
-	@photos = @photos.take(5)
-
 	@total_width = 0
 	@max_height = @photos.map {|p| p.height}.min
 	@photos.each do |pic|

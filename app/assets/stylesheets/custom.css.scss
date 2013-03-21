@@ -3,6 +3,7 @@
 body{
   //overflow-y:hidden;
   //overflow-x:hidden;
+  white-space: nowrap;
 }
 
 .user-controls {
@@ -37,11 +38,14 @@ body{
   height: 100%;
   z-index: 1;
   white-space: nowrap;
+  min-width: 600px;
 
   img{
     //position:static;
     height: inherit;
     border-right:5px solid #FFF;
+    max-width: none;
+
   }
 }
 

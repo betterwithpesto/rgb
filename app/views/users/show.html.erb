@@ -2,11 +2,13 @@
     <div class="sidebar-nav sidebar-nav-fixed"> 
         <ul class ="nav nav-list">
             <div class = "profile-pic">
-                <%= link_to image_tag(@profile_pic_url), @person.get_info!.photos_url %>
+                <%= #link_to image_tag(@profile_pic_url), @person.get_info!.photos_url %>
             </div>
-            <br /><br />
-            <li class="nav-header">About</li>
-            <%= @user.about %>
+            <br />
+            <div class="about">
+                <%= @user.about %>
+            </div>
+            <br />
             <li class="nav-header">Sets </li>
                 <% @sets.each do |set| %>
                     <li> <%= link_to set.title, set_path(set.id) %>  </li>

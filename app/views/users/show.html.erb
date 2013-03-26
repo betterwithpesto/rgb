@@ -44,16 +44,19 @@
     var newH  = $(window).height();
     var w = $(".gallery").width();
     $(".gallery").height(newH);
-     function imgsize(){
-            newH  = $(window).height();
-            totalImageWidth = 0;
-            //multiplier = (newH/origH);
-            $(".gallery").height(newH);
+
+    function imgsize(){
+        newH  = $(window).height();
+        totalImageWidth = 0;
+        //multiplier = (newH/origH);
+        $(".gallery").height(newH);
         }
-        $(window).bind('resize', function() { imgsize(); });
-      $(function() {
-            $(".gallery img").lazyload({ effect: "fadeIn", threshold:2000});
-        });
+            $(window).bind('resize', function() { imgsize(); 
+    });
+
+    $(function() {
+        $(".gallery img").lazyload({ effect: "fadeIn", threshold:2000});
+    });
 
     var next;
     $('.gallery img').click(function() {

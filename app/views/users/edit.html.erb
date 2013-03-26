@@ -20,6 +20,14 @@ If you change anything, you will have to relogin!! <br /><br />
 				About: <br />
 				<%= u.text_area :about %> <br />
 			</div>
+
+			<% f.fields_for :links do |builder| %>
+				<p>
+					<%= builder.label :name, "name" %><br />
+					<%= builder.text_area :name %>
+				</p>
+			<% end %>
+
 			<div class = "actions">
 			 	<%= u.submit "submit" %>
 			</div>

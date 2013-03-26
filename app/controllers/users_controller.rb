@@ -2,10 +2,12 @@ class UsersController < ApplicationController
 
 def show
 	@user = User.find_by_urlname!(request.subdomain)
+	@user_url = "http://" << @user.urlname << "rgb.io"
 	@person = Flickr.people.find(@user.uid)
 	@sets = @person.get_sets
+	@user_info = @person.get_info!
 	#@default_set = @sets.first.id
-	@profile_pic_url = "http://farm" << @person.get_info!.icon_farm.to_s << ".staticflickr.com/" << @person.get_info!.icon_server.to_s << "/buddyicons/" << @person.get_info!.nsid << ".jpg"
+	@profile_pic_url = "http://farm" << @user_info.icon_farm.to_s << ".staticflickr.com/" << @user_info.icon_server.to_s << "/buddyicons/" << @user_info.nsid << ".jpg"
 
 	@photo_size = 1024
 
@@ -28,7 +30,7 @@ def show
 			|photo| 
 			if (!(photo.large!(@photo_size).source_url.nil?))
 				photo.large!(@photo_size)
-			else 
+			else
 				photo.largest!
 			end}
 	end

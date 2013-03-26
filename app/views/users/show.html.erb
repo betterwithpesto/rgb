@@ -34,24 +34,39 @@
     </div>
 
     
-    <div class = "gallery">
-        <% @photos.each do |photo| %>
-            <img src="/assets/grey.gif" data-original="<%= photo.source_url %>" data-width="<%= photo.width %>" data-height="<%= photo.height %>" />
+    <div class="gallery" id="gal">
+        <% @photos.each_with_index do |photo, i| %>
+            <img src="/assets/grey.gif" class ="<%= i %>"data-original="<%= photo.source_url %>" data-width="<%= photo.width %>" data-height="<%= photo.height %>" />
         <% end %>
     </div>
 
 <script type="text/javascript" charset="utf-8">
-var newH  = $(window).height();
-$(".gallery").height(newH);
- function imgsize(){
-        newH  = $(window).height();
-        totalImageWidth = 0;
-        //multiplier = (newH/origH);
-        $(".gallery").height(newH);
-    }
-    $(window).bind('resize', function() { imgsize(); });
-  $(function() {
-        $(".gallery img").lazyload({ effect: "fadeIn"});
+    var newH  = $(window).height();
+    var w = $(".gallery").width();
+    $(".gallery").height(newH);
+     function imgsize(){
+            newH  = $(window).height();
+            totalImageWidth = 0;
+            //multiplier = (newH/origH);
+            $(".gallery").height(newH);
+        }
+        $(window).bind('resize', function() { imgsize(); });
+      $(function() {
+            $(".gallery img").lazyload({ effect: "fadeIn", threshold:2000});
+        });
+
+    var next;
+    $('.gallery img').click(function() {
+        var img_id = parseInt($(this).attr("class"));
+        var next = $(".gallery ." + (img_id + 1));
+        //$('#gal').scrollTo($('.gallery .' + next));
+        /*$('#gal').animate({
+            scrollLeft: $(".gallery ." + next).offset().left
+        }, 800);*/
+        $('body').scrollLeft(next.position().left - 200);
+        console.log("clicked " + $(this).position().left);
+        console.log("next " + next.position().left);
+    
     });
 /*
     var origH = $(window).height();

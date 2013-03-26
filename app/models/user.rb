@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	attr_accessible :urlname, :about
 	validates_uniqueness_of :urlname
 	validates_format_of :urlname, :with => /^[A-Za-z\d_]+$/
+  has_many :links, :dependent => :destroy
+  accepts_nested_attributes_for :links
 
    def self.create_with_omniauth(auth)
     create! do |user|

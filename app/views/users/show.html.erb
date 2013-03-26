@@ -50,8 +50,8 @@
         totalImageWidth = 0;
         //multiplier = (newH/origH);
         $(".gallery").height(newH);
-        }
-            $(window).bind('resize', function() { imgsize(); 
+    }
+    $(window).bind('resize', function() { imgsize(); 
     });
 
     $(function() {
@@ -66,7 +66,7 @@
         /*$('#gal').animate({
             scrollLeft: $(".gallery ." + next).offset().left
         }, 800);*/
-        $('body').scrollLeft(next.position().left - 200);
+        $(document).scrollLeft(next.position().left - 200);
         console.log("clicked " + $(this).position().left);
         console.log("next " + next.position().left);
     

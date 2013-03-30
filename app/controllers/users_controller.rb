@@ -8,7 +8,7 @@ def show
 	@user_info = @person.get_info!
 	#@default_set = @sets.first.id
 	@profile_pic_url = "http://farm" << @user_info.icon_farm.to_s << ".staticflickr.com/" << @user_info.icon_server.to_s << "/buddyicons/" << @user_info.nsid << ".jpg"
-
+	@link = Link.where(:user_id => @user.id).all
 	@photo_size = 1024
 
 	if params[:set_id] != nil
@@ -45,13 +45,13 @@ end
 
 def edit
 	@user = User.find_by_urlname!(request.subdomain)
-	
+	@link = Link.where(:user_id => @user.id).all
 end
 
 def update
 	@user = User.find_by_urlname!(request.subdomain)
 	if @user.update_attributes(params[:user])
-		redirect_to signout_url(:subdomain => false)
+		redirect_to root_url(:subdomain => false)
 	end
 end
 

@@ -6,30 +6,31 @@
 
 <%if current_user.urlname == @user.urlname %>
 
-<header>Profile Edit Page</header> <br />
+<h1>Profile Edit Page</h1> <br />
 If you change anything, you will have to relogin!! <br /><br />
 
-
-	<%= form_for @user do |u| %>
+	<%= form_for @user do |f| %>
 		<%= render "shared/error_messages", :target => @user %>
+		<legend>General</legend>
 			<div class="field">
 				URL : Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
-				<%= u.text_field :urlname %> (No symbols or spaces) <br />
+				<%= f.text_field :urlname %> (No symbols or spaces) <br />
 			</div>
-			<div class "field">
+			<div class="field">
 				About: <br />
-				<%= u.text_area :about %> <br />
+				<%= f.text_area :about %> <br />
 			</div>
-
 			<% f.fields_for :links do |builder| %>
-				<p>
-					<%= builder.label :name, "name" %><br />
-					<%= builder.text_area :name %>
-				</p>
-			<% end %>
-
+   				<%= render 'link_fields', :f => builder %>
+  			<% end %>
+  			<legend>Links</legend>
+  			<%= f.fields_for :links do |builder| %>
+  				<%= builder.text_field :name %> <%= builder.text_field :url %><br />
+  			<% end %>
+  			<p><%= link_to_add_fields "Add Link", f, :links %></p>
 			<div class = "actions">
-			 	<%= u.submit "submit" %>
+			 	<%= f.submit "submit" %>
 			</div>
 		<% end %>
 	<% end %>
+

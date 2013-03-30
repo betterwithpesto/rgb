@@ -16,3 +16,9 @@ gem 'bootstrap-sass', '2.1'
 gem 'omniauth'
 gem "omniauth-flickr"
 gem 'client_side_validations'
+
+group :development do
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'meta_request'
+end

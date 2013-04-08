@@ -25,8 +25,8 @@
   			<legend>Links</legend>
   			Link to your other sites
 
-  			URL's must have an http:// before them or else they won't work!
-  			
+  			URL's must have an http:// before them or else they won't work! <br />
+
   			<%= f.fields_for :links do |builder| %>
   				<%= builder.text_field :name %> <%= builder.text_field :url %><br />
   			<% end %>

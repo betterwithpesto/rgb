@@ -52,6 +52,8 @@ def update
 	@user = User.find_by_urlname!(request.subdomain)
 	if @user.update_attributes(params[:user])
 		redirect_to root_url(:subdomain => false)
+	else
+		render "edit"
 	end
 end
 

@@ -53,7 +53,7 @@ def update
 	if @user.update_attributes(params[:user])
 		redirect_to root_url(:subdomain => false)
 	else
-		render "edit"
+		render :edit
 	end
 end
 

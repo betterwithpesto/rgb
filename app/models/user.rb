@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	validates_format_of :urlname, :with => /^[A-Za-z\d_]+$/
   has_many :links, :dependent => :destroy
   accepts_nested_attributes_for :links
+  validates_length_of :about, :maximum => 140
 
    def self.create_with_omniauth(auth)
     create! do |user|

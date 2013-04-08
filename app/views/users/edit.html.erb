@@ -6,26 +6,25 @@
 
 <%if current_user.urlname == @user.urlname %>
 
-<h1>Profile Edit Page</h1> <br />
-
+<h1>Profile Edit Page</h1>
+<%= link_to "< Back to your page", root_url %> <br/>
 	<%= form_for @user do |f| %>
 		<%= render "shared/error_messages", :target => @user %>
 		<legend>General</legend>
 			<div class="field">
-				URL : Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
+				<b>Username</b> : Changing this will effect your portfolio url <br /> 
+				Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
 				<%= f.text_field :urlname %> (No symbols or spaces) <br />
 			</div>
 			<div class="field">
-				About: <br />
-				<%= f.text_area :about %> <br />
+				<b>About:</b> <br />
+				<%= f.text_area :about, :rows => "5" %> <br />
 			</div>
 			<% f.fields_for :links do |builder| %>
    				<%= render 'link_fields', :f => builder %>
   			<% end %>
   			<legend>Links</legend>
-  			Link to your other sites
-
-  			URL's must have an http:// before them or else they won't work! <br />
+  			URL's must have an "http://" before them or else they won't work! <br /> <br />
 
   			<%= f.fields_for :links do |builder| %>
   				<%= builder.text_field :name %> <%= builder.text_field :url %><br />

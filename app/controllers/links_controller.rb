@@ -7,5 +7,3 @@ def create
 		redirect_to edit_url(subdomain: current_user.urlname)
 	end
 end
-
-

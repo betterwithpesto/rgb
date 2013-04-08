@@ -71,7 +71,9 @@
         /*$('#gal').animate({
             scrollLeft: $(".gallery ." + next).offset().left
         }, 800);*/
-        $(document).scrollLeft(next.position().left - 200);
+        //$(document).scrollLeft(next.position().left - 200);
+        $('html, body').animate({
+        scrollLeft: next.position().left - 200});
         console.log("clicked " + $(this).position().left);
         console.log("next " + next.position().left);
     

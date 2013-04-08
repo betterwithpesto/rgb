@@ -7,7 +7,6 @@
 <%if current_user.urlname == @user.urlname %>
 
 <h1>Profile Edit Page</h1> <br />
-If you change anything, you will have to relogin!! <br /><br />
 
 	<%= form_for @user do |f| %>
 		<%= render "shared/error_messages", :target => @user %>
@@ -24,6 +23,10 @@ If you change anything, you will have to relogin!! <br /><br />
    				<%= render 'link_fields', :f => builder %>
   			<% end %>
   			<legend>Links</legend>
+  			Link to your other sites
+
+  			URL's must have an http:// before them or else they won't work!
+  			
   			<%= f.fields_for :links do |builder| %>
   				<%= builder.text_field :name %> <%= builder.text_field :url %><br />
   			<% end %>

@@ -13,10 +13,12 @@
                 <% @sets.each do |set| %>
                     <li> <%= link_to set.title, set_path(set.id) %>  </li>
                 <% end %>
-            <li class="nav-header">Links </li>
-                <% @link.each do |link| %>
-                    <li> <%= link_to link.name, link.url %>  </li>
-                <% end %>
+            <% if @link.size > 0 %>
+                <li class="nav-header">Links </li>
+                    <% @link.each do |link| %>
+                        <li> <%= link_to link.name, link.url, :target => '_blank' %>  </li>
+                    <% end %>
+            <% end %>
             <!-- maybe put cameras used... pretty cool feature -->
            
             <div class ="user-controls">

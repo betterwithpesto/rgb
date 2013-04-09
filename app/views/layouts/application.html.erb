@@ -13,12 +13,10 @@
   <script type="text/javascript" src="//use.typekit.net/brd7ckr.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <%= csrf_meta_tags %>
-  <header>
-</header>
 </head>
 <body>
 
 <%= yield %>
-
+<%= render :partial => ‘layouts/ga’ if RAILS_ENV == ‘production’ %>
 </body>
 </html>

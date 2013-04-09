@@ -1,13 +1,12 @@
 <div class="container">
 	<div class ="page-header">
-		Welcome to rgb.io
 		<div class="lead">
-			Create a portfolio website, using just your Flickr account.
+			Create a portfolio website, using just your Flickr account
 			<br />
            	
             <% if current_user.nil? %>
             	Try it out! <br />
-				<%= link_to "Sign up with Flickr", signin_url %>
+				<%= link_to "Sign up with Flickr", signin_url, :class => ".btn-large" %>
 			<% else %>
 				Welcome Back <%= current_user.name %>! <br />
 				<%= link_to "Back to your page", root_url(subdomain: current_user.urlname) %> <br />

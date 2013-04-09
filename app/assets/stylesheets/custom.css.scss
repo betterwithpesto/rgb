@@ -5,6 +5,17 @@ body{
   //overflow-x:hidden;
 }
 
+.profile-pic{
+
+}
+
+.inline{
+  display: inline;
+  vertical-align: top;
+  line-height: 10px;
+  
+}
+
 .field_with_errors{
     border: 2px solid #F7977A;
   }
@@ -33,6 +44,11 @@ body{
    margin-bottom: 90px;
 
 }
+
+.btn-large{
+  width: 250px;
+}
+
 .gallery{
   //position:static;
   //overflow-x: scroll;

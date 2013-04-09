@@ -80,53 +80,14 @@
         console.log("next " + next.position().left);
     
     });
-/*
-    var origH = $(window).height();
-    var newH  = $(window).height();
-    var W = $(".gallery").width();
-    var newW = 0;
-    var multiplier = (newH/<%= @max_height %>);
-    $(".gallery").height(origH);
-    $(".gallery").width(W*multiplier);
-    var counter = 0;
-    var totalImageWidth = 0;
-    $(window).load(function(){
-        $('.gallery img').each(function(){
-          totalImageWidth += ($(this).width() + 5);
-          counter++;
-        });
-        $(".gallery").width(totalImageWidth);
-    });
-    
-    function imgsize(){
-        newW = $(window).width();
-        newH  = $(window).height();
-        totalImageWidth = 0;
-        $('.gallery img').each(function(){
-          totalImageWidth += ($(this).width() + 5);
-        });
 
-        //multiplier = (newH/origH);
-        $(".gallery").height(newH);
-        $(".gallery").width(totalImageWidth);
-    }
-    $(window).bind('resize', function() { imgsize(); });
-
-    $(function() {
-        $(".gallery img").lazyload({ effect: "fadeIn"});
-        totalImageWidth = 0;
-        $('.gallery img').each(function(){
-          totalImageWidth += ($(this).width() + 5);
-        });
-    });
-    */
-/*
 $(function() {
    $("body").mousewheel(function(event, delta) {
       this.scrollLeft -= (delta * 50);
           event.preventDefault();
    });
 });
-*/
+
+
 
 </script>

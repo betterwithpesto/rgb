@@ -56,7 +56,7 @@
         newH  = $(window).height();
         totalImageWidth = 0;
         //multiplier = (newH/origH);
-        w = $(".gallery").width();
+        w = $(window).width();
         $(".gallery").height(newH);
     }
     $(window).bind('resize', function() { imgsize(); 
@@ -69,7 +69,7 @@
     var next;
     var margin = 0;
     $('.gallery img').click(function() {
-        if (w > 480){
+        if (w > 767){
             margin = 200;
         }
         else{

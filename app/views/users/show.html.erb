@@ -56,6 +56,7 @@
         newH  = $(window).height();
         totalImageWidth = 0;
         //multiplier = (newH/origH);
+        w = $(".gallery").width();
         $(".gallery").height(newH);
     }
     $(window).bind('resize', function() { imgsize(); 
@@ -66,7 +67,14 @@
     });
 
     var next;
+    var margin = 0;
     $('.gallery img').click(function() {
+        if (w >= 480){
+            margin = 200;
+        }
+        else{
+            margin = 0;
+        }
         var img_id = parseInt($(this).attr("class"));
         var next = $(".gallery ." + (img_id + 1));
         //$('#gal').scrollTo($('.gallery .' + next));
@@ -75,7 +83,7 @@
         }, 800);*/
         //$(document).scrollLeft(next.position().left - 200);
         $('html, body').animate({
-        scrollLeft: next.position().left - 200});
+        scrollLeft: next.position().left - margin});
         console.log("clicked " + $(this).position().left);
         console.log("next " + next.position().left);
     

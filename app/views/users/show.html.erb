@@ -80,14 +80,13 @@
         console.log("next " + next.position().left);
     
     });
-
+var delta = 0;
 $(function() {
-   $("body").mousewheel(function(event, delta) {
-      this.scrollLeft -= (delta * 50);
+   $("html, body").bind("mousewheel", function(event, delta) {
+        this.scrollLeft -= ((delta) * 50);
           event.preventDefault();
+        //alert(delta);
    });
 });
-
-
 
 </script>

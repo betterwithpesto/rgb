@@ -1,5 +1,5 @@
     
-    <div class="sidebar-nav sidebar-nav-fixed hidden-phone"> 
+    <div class="sidebar-nav sidebar-nav-fixed"> 
         <ul class ="nav nav-list">
             
             <div class = "profile-pic">
@@ -69,12 +69,6 @@
     var next;
     var margin = 0;
     $('.gallery img').click(function() {
-        if (w > 767){
-            margin = 200;
-        }
-        else{
-            margin = 0;
-        }
         var img_id = parseInt($(this).attr("class"));
         var next = $(".gallery ." + (img_id + 1));
         //$('#gal').scrollTo($('.gallery .' + next));
@@ -83,7 +77,7 @@
         }, 800);*/
         //$(document).scrollLeft(next.position().left - 200);
         $('html, body').animate({
-        scrollLeft: next.position().left - margin});
+        scrollLeft: next.position().left});
         console.log("clicked " + $(this).position().left);
         console.log("next " + next.position().left);
     

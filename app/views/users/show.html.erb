@@ -67,8 +67,9 @@
     });
 
     var next;
-    var margin = 0;
+    var margin = 200;
     $('.gallery img').click(function() {
+       
         var img_id = parseInt($(this).attr("class"));
         var next = $(".gallery ." + (img_id + 1));
         //$('#gal').scrollTo($('.gallery .' + next));
@@ -77,7 +78,7 @@
         }, 800);*/
         //$(document).scrollLeft(next.position().left - 200);
         $('html, body').animate({
-        scrollLeft: next.position().left});
+        scrollLeft: next.position().left - margin});
         console.log("clicked " + $(this).position().left);
         console.log("next " + next.position().left);
     

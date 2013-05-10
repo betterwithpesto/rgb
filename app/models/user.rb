@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	attr_accessible :urlname, :about, :links_attributes
+	attr_accessible :urlname, :about, :links_attributes, :limit
 	validates_uniqueness_of :urlname
 	validates_format_of :urlname, :with => /^[A-Za-z\d_]+$/
   has_many :links, :dependent => :destroy

@@ -17,6 +17,7 @@ gem 'omniauth'
 gem "omniauth-flickr"
 gem 'client_side_validations'
 
+
 group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'

@@ -9,16 +9,18 @@ class User < ActiveRecord::Base
   validates_format_of :urlname, :with => /^[A-Za-z\d_]+$/
   validates_length_of :about, :maximum => 140
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
+  class << self
+    def create_with_omniauth(auth)
+      create! do |user|
+        user.provider = auth["provider"]
+        user.uid = auth["uid"]
+        user.name = auth["info"]["name"]
 
-      if Flickr.people.find(user.uid).get_info!.path_alias.nil?
-        user.urlname = user.uid.gsub("@", "").downcase
-      else
-        user.urlname = Flickr.people.find(user.uid).get_info!.path_alias.downcase
+        if Flickr.people.find(user.uid).get_info!.path_alias.nil?
+          user.urlname = user.uid.gsub("@", "").downcase
+        else
+          user.urlname = Flickr.people.find(user.uid).get_info!.path_alias.downcase
+        end
       end
     end
   end
@@ -33,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def flickr_account
-    @flickr_account ||= FlickrAccount.new(uid)
+    @flickr_account ||= FlickrAccount.new(uid, limit)
   end
 
 end

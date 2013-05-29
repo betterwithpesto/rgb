@@ -3,9 +3,10 @@ class FlickrAccount
     delegate :photos_url,
              :to => :info
 
-    def initialize(uid)
+    def initialize(uid, limit)
         @account = Flickr.people.find(uid)
         @sets = @account.get_sets
+        @limit = limit
     end
 
 
@@ -45,7 +46,7 @@ class FlickrAccount
 
 
     def sets
-        @wrapped_sets ||= @sets.map do |set|
+        @wrapped_sets ||= @sets.first(@limit).map do |set|
             FlickrSet.new(set.title, set.id)
         end
     end

@@ -5,8 +5,16 @@ body{
 
 }
 
-.profile-pic{
+$menuMarginBottom: 15px;
 
+
+.profile-pic{
+  margin-bottom: $menuMarginBottom
+}
+
+
+.about {
+  margin-bottom: $menuMarginBottom;
 }
 
 .inline{
@@ -21,7 +29,7 @@ body{
   }
 
 .user-controls {
-  
+
     bottom:0;
     width: 170px;
     float:bottom;

@@ -1,0 +1,35 @@
+<div class="sidebar-nav sidebar-nav-fixed">
+    <ul class ="nav nav-list">
+
+        <div class = "profile-pic">
+            <%= link_to image_tag(navbar.profile_pic_url), navbar.photos_url, :target => "_blank"%>
+        </div>
+
+        <div class="about">
+            <%= navbar.about %>
+        </div>
+
+        <li class="nav-header">Sets </li>
+            <% navbar.sets.each do |set| %>
+                <li> <%= link_to set.title, set_path(set.id) %>  </li>
+            <% end %>
+        <% if navbar.links.any? %>
+            <li class="nav-header">Links </li>
+            <% navbar.links.each do |link| %>
+                <li> <%= link_to link.name, link.url, :target => '_blank' %>  </li>
+            <% end %>
+        <% end %>
+        <!-- maybe put cameras used... pretty cool feature -->
+
+        <div class ="user-controls">
+            <li class="divider"></li>
+            <% if current_user %>
+                <strong>Logged in as:</strong>
+                <%= current_user.urlname %> <br />
+                <%= link_to "Edit Profile", edit_url(subdomain: current_user.urlname) if !current_user.nil? %> </br>
+                <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %>
+            <% end %>
+            <%= link_to "Sign in with Flickr", signin_url( :subdomain => false) if current_user.nil? %>
+        </div>
+    </ul>
+</div>

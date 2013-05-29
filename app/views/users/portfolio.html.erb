@@ -1,0 +1,15 @@
+
+<%= render partial: 'shared/navbar', locals: { navbar: @page.navbar } %>
+
+<script type="text/javascript" charset="utf-8">
+    rgb.portfolio.init();
+</script>
+
+<div class="gallery" id="gal">
+    <% @page.photos.each_with_index do |photo, i| %>
+        <%= image_tag 'grey.gif', class: "photo-#{i}", data: {  'photo-number' => i,
+                                                                'original' => photo.source_url,
+                                                                'width' => photo.width,
+                                                                'height' => photo.height } %>
+    <% end %>
+</div>

@@ -8,35 +8,35 @@
 
 <h1>Profile Edit Page</h1>
 <%= link_to "< Back to your page", root_url %> <br/>
-	<%= form_for @user do |f| %>
-		<%= render "shared/error_messages", :target => @user %>
-		<legend>General</legend>
-			<div class="field">
-				<b>Username</b> : Changing this will effect your portfolio url <br /> 
-				Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
-				<%= f.text_field :urlname %> (No symbols or spaces) <br />
-			</div>
-			<div class="field">
-				<b>About:</b> <br />
-				<%= f.text_area :about, :rows => "5" %> <br />
-			</div>
-			<div class="field">
-				<b>Set Limit:</b> Change the amount of sets displayed <br />
-				<%= f.text_field :limit %> <br />
-			</div>
-			<% f.fields_for :links do |builder| %>
-   				<%= render 'link_fields', :f => builder %>
-  			<% end %>
-  			<legend>Links</legend>
-  			URL's must have an "http://" before them or else they won't work! <br /> <br />
+<%= form_for @user do |f| %>
+	<%= render "shared/error_messages", :target => @user %>
+	<legend>General</legend>
+		<div class="field">
+			<b>Username</b> : Changing this will effect your portfolio url <br /> 
+			Your current url is <%= "http://" << @user.urlname << ".rgb.io" %> <br />
+			<%= f.text_field :urlname %> (No symbols or spaces) <br />
+		</div>
+		<div class="field">
+			<b>About:</b> <br />
+			<%= f.text_area :about, :rows => "5" %> <br />
+		</div>
+		<div class="field">
+			<b>Set Limit:</b> Change the amount of sets displayed <br />
+			<%= f.text_field :limit %> <br />
+		</div>
+		<% f.fields_for :links do |builder| %>
+				<%= render 'link_fields', :f => builder %>
+			<% end %>
+			<legend>Links</legend>
+			URL's must have an "http://" before them or else they won't work! <br /> <br />
 
-  			<%= f.fields_for :links do |builder| %>
-  				<%= builder.text_field :name %> <%= builder.text_field :url %><br />
-  			<% end %>
-  			<p><%= link_to_add_fields "Add Link", f, :links %></p>
-			<div class = "actions">
-			 	<%= f.submit "submit" %>
-			</div>
-		<% end %>
+			<%= f.fields_for :links do |builder| %>
+				<%= builder.text_field :name %> <%= builder.text_field :url %><br />
+			<% end %>
+			<p><%= link_to_add_fields "Add Link", f, :links %></p>
+		<div class = "actions">
+		 	<%= f.submit "submit" %>
+		</div>
 	<% end %>
+<% end %>
 

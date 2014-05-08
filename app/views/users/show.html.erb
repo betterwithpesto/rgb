@@ -31,11 +31,11 @@
                     <strong>Logged in as:</strong>
                     <%= current_user.urlname %> <br />
                     <%= link_to "Edit Profile", edit_url(subdomain: current_user.urlname) if !current_user.nil? %> </br>
+                    <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %>
 
-
-                <% end %>
+                <% else %>
                 <%= link_to "Sign in with Flickr", signin_url( :subdomain => false) if current_user.nil? %>
-                <%= link_to "Sign Out", signout_url( :subdomain => false) if !current_user.nil? %>
+                <% end %>
 
             </div>
         </ul>

@@ -18,3 +18,11 @@
 <%= render :partial => 'layouts/ga' if Rails.env == 'production' %>
 </body>
 </html>
+<script>
+jQuery(document).ready(function() {
+    jQuery('.expander').hide();
+    jQuery('.trigger').click(function() {
+      jQuery(this).next('.expander').slideToggle();
+    });
+  });
+</script>

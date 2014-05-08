@@ -27,7 +27,7 @@
             <div class ="user-controls">
                 <li class="divider"></li>
 
-                <% if current_user %>
+                <% if !current_user.nil? %>
                     <strong>Logged in as:</strong>
                     <%= current_user.urlname %> <br />
                     <%= link_to "Edit Profile", edit_url(subdomain: current_user.urlname) if !current_user.nil? %> </br>

@@ -12,7 +12,7 @@ end
 
 gem 'jquery-rails'
 gem "flickr-objects"
-gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'bootstrap-sass', '~> 2.3.2'
 gem 'omniauth'
 gem "omniauth-flickr"
 gem 'client_side_validations'
